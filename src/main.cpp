@@ -1,3 +1,7 @@
- int main (){
-     return 0;
- }
+#include "Renderer.h"
+
+int main(int argc, char** argv) {
+    intRenderer(argc, argv);
+    runRenderer();
+    return 0;
+}
