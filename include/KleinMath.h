@@ -6,6 +6,6 @@ struct Point3D {
     float x, y, z;
 };
 
-Point3D ComputeKleinBottlePoint(float u, float v, float radius);
+Point3D ComputeKlein(float u, float v, float radius);
 
 #endif

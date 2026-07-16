@@ -15,10 +15,10 @@ Point3D ComputeKlein(float u, float v, float radius){
 
     if (u < HalfTurn) {
         point.x =  radius * (2.0f + cosU) * cosV;
-        point.x =  radius * (2.0f + cosU) * sinV;
+        point.y = radius * (2.0f + cosU) * sinV;
     } else {
         point.x = radius * (2.0f- cosU ) * cosV;
-        point.x = radius * (2.0f- cosU ) * sinV;
+        point.y = radius * (2.0f - cosU) * sinV;
     }
 
     point.z = radius * sinU * (u < HalfTurn ? 1.0f : 0.0f);
