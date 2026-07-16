@@ -4,24 +4,17 @@
 
 
 Point3D ComputeKlein(float u, float v, float radius){
-    float cosU = std::cos(u);
-    float sinU = std::sin(u);
-    float cosV = std::cos(v);
-    float sinV = std::sin(v);
+    float u2 = u / 2.0f;
+    float cosU2 = std::cos(u2);
+    float sinU2 = std::sin(u2);
+    float sinV  = std::sin(v);
 
     Point3D point;
 
-    const float HalfTurn = 3.14159265f ;
-
-    if (u < HalfTurn) {
-        point.x =  radius * (2.0f + cosU) * cosV;
-        point.y = radius * (2.0f + cosU) * sinV;
-    } else {
-        point.x = radius * (2.0f- cosU ) * cosV;
-        point.y = radius * (2.0f - cosU) * sinV;
-    }
-
-    point.z = radius * sinU * (u < HalfTurn ? 1.0f : 0.0f);
+    float r = 3.0f + cosU2 * sinV - sinU2 * std::sin(2.0f * v);
+    point.x = radius * r * std::cos(u);
+    point.y = radius * r * std::sin(u);
+    point.z = radius * (sinU2 * sinV + cosU2 * std::sin(2.0f * v));
 
     return point;
 
